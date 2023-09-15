@@ -10,6 +10,8 @@ public class controlsPlayerSpaceship : MonoBehaviour
     private float vMovement = 7f;
     private Camera mainCamera;
     private float minX, maxX, minY, maxY;
+    public GameObject bullets;
+    public float ls;
     // Start is called before the first frame update
     void Start()
     {
@@ -43,7 +45,11 @@ public class controlsPlayerSpaceship : MonoBehaviour
         // Aplicar la nueva posición limitada al objeto
         transform.position = posicionActual;
 
-
+        if (Input.GetKey(KeyCode.Space) && Time.time > ls + 0.25f)
+        {
+            disparar();
+            ls = Time.time;
+        }
     }
     void CalcularLimitesDeCamara()
     {
@@ -57,4 +63,8 @@ public class controlsPlayerSpaceship : MonoBehaviour
         minY = esquinaInferiorIzquierda.y;
         maxY = esquinaSuperiorDerecha.y;
     } 
+    public void disparar()
+    {
+        GameObject bullet = Instantiate(bullets, transform.position, Quaternion.identity);
+    }
 }
