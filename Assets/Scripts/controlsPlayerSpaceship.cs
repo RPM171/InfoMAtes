@@ -4,7 +4,9 @@ using UnityEngine;
 
  
 public class controlsPlayerSpaceship : MonoBehaviour
+    
 {
+    public disparo dis;
     private float vMovement = 7f;
     private Camera mainCamera;
     private float minX, maxX, minY, maxY;
