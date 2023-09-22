@@ -23,6 +23,9 @@ public class movimientobala : MonoBehaviour
         {
             disparoS.enabled = false;
         }
-        
+        if (transform.position.y <= 5)
+        {
+        Destroy(gameObject);
+        }
     }
 }
